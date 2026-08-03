@@ -109,21 +109,15 @@ If the user says "make it secure," ask: "Secure how? JWT? OAuth2? Rate limiting?
 
 ## 4. Cross-Agent Validation Protocol
 
-### When Spec Agent Creates a Spec
+### When SpecPlan Agent Creates a Spec & Plan
 1. Load this skill for structure and quality rules
-2. Follow the mandatory structure (Section 1)
+2. Follow the mandatory structure (Sections 1-6 for Spec, Sections 7-11 for Plan)
 3. Apply all quality rules (Section 2)
 4. Avoid all anti-patterns (Section 3)
-5. Output: `.opencode/plans/[feature].spec.md`
+5. Output: `.opencode/plans/[feature].spec.md` (unified spec + plan)
 
 ### When Plan Agent Reviews a Spec
-Before creating the technical plan, validate the spec:
-- [ ] All sections present (Section 1)
-- [ ] Every requirement is testable (Section 2)
-- [ ] No anti-patterns present (Section 3)
-- [ ] Technical constraints are specific and actionable
-- [ ] Success criteria are measurable
-- If spec is invalid → Request spec revision before planning
+**Note**: As of pipeline v2, this validation is now part of SpecPlan Agent's self-validation process. The unified agent validates its own output against spec and plan quality rules before presenting to the user.
 
 ### When Build Agent Implements
 Before coding, validate against spec:

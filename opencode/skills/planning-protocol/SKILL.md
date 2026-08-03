@@ -99,12 +99,12 @@ Every phase MUST identify at least one risk and mitigation strategy.
 
 ## 4. Cross-Agent Validation Protocol
 
-### When Plan Agent Creates a Plan
+### When SpecPlan Agent Creates a Plan (as Part 2)
 1. Load this skill for structure and quality rules
-2. Follow the mandatory structure (all 5 sections)
+2. Follow the mandatory structure (all 5 sections as Sections 7-11 in unified doc)
 3. Apply all quality rules
 4. Avoid all anti-patterns
-5. Output: `/tmp/opencode/plan-[feature].md` (TEMPORARY)
+5. Output: `.opencode/plans/[feature].spec.md` (unified with spec — Part 2 of document)
 
 ### When Build Agent Implements
 Before coding, validate against plan:
@@ -126,12 +126,14 @@ Use plan as verification checklist:
 
 ## 5. Output Format
 
-Plans MUST be saved to: `/tmp/opencode/plan-[feature].md`
+Plans are now saved as Part 2 of the unified spec document at: `.opencode/plans/[feature_name].spec.md`
 
 File naming convention:
-- Use lowercase with hyphens: `user-authentication-plan.md`
-- NOT: `User Authentication Plan.md`
-- NOT: `auth_plan.md`
+- Use lowercase with hyphens: `user-authentication.spec.md`
+- NOT: `User Authentication Spec.md`
+- NOT: `auth_spec.md`
+
+**Note**: The plan is no longer saved separately to `/tmp/opencode/`. It is part of the permanent spec artifact.
 
 ---
 
