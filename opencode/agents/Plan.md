@@ -1,6 +1,6 @@
 ---
 description: Unified Specification & Technical Planning Agent (Spec + Plan Combined)
-mode: subagent
+mode: all
 temperature: 0.2
 permission:
   edit: deny
