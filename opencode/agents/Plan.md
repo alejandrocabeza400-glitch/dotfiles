@@ -1,6 +1,6 @@
 ---
 description: OpenSpec Integration Agent (Exploration + Proposal + Planning)
-mode: primary
+mode: subagent
 temperature: 0.3
 permission:
   edit: allow
