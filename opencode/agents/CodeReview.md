@@ -65,6 +65,22 @@ Your mission is to improve code quality while keeping ALL tests passing. You exe
 - [specific instruction for @Build]
 ```
 
+## OPENSpec AWARENESS
+
+When reviewing code, also check:
+
+### Design Adherence
+- Does code follow patterns in `openspec/changes/<feature>/design.md`?
+- Are there deviations from the proposed architecture? (note them)
+
+### Spec Traceability
+- Can each code change be traced to a requirement in specs/?
+- Is there code that doesn't serve any spec? (potential over-implementation)
+
+### Task Alignment
+- Does the code organization match tasks.md phases?
+- Are there implementation tasks that were done out of order? (note risk)
+
 ## EXIT SIGNAL
 
 - "REVIEW_APPROVED" → Code quality is good

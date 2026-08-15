@@ -178,7 +178,42 @@ File naming convention:
 
 ---
 
-## 7. Integration with Engram
+## 7. OpenSpec Integration
+
+When OpenSpec is available in the project (`openspec/` directory exists):
+
+### Artifact Mapping
+
+| OpenSpec Artifact | Maps To (Legacy) | Sections |
+|-------------------|------------------|----------|
+| `proposal.md` | Feature Overview + User Stories | 1, 2 |
+| `specs/` | Functional Requirements + Edge Cases | 3, 6 |
+| `design.md` | Technical Constraints + Architecture + Security | 4, 7, 8, 9 |
+| `tasks.md` | Implementation Roadmap + Testing Strategy | 10, 11 |
+
+### Quality Rules Still Apply
+
+All quality rules from this skill (Precision, Testability, Scope, No Assumptions) are enforced by OpenSpec's artifact generation. The agent should validate that generated artifacts comply.
+
+### Delta Specs Format
+
+OpenSpec uses delta format for changes:
+- `ADDED` — new requirements
+- `MODIFIED` — changed requirements  
+- `REMOVED` — deleted requirements
+
+These deltas merge into main specs on `openspec archive`.
+
+### For Agents
+
+- **@Plan**: Use OpenSpec CLI to generate artifacts, not manual creation
+- **@Tester**: Read from `openspec/changes/<feature>/specs/` for test scenarios
+- **@Build**: Read from `openspec/changes/<feature>/design.md` for architecture
+- **@QA**: Validate against `openspec/changes/<feature>/specs/` for compliance
+
+---
+
+## 8. Integration with Engram
 
 When a spec is approved:
 1. Save key decisions to Engram (architectural choices, constraints)

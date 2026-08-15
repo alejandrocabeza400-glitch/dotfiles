@@ -132,6 +132,34 @@ Test Files:
 5. **Atomic tests** - Each test should be independent and isolated
 6. **No hardcoded values** - Use constants or fixtures for test data
 
+## CONTEXT LOADING
+
+Before creating tests, read:
+
+1. **OpenSpec specs** (primary):
+   - `openspec/changes/<feature>/specs/` — all scenarios in Gherkin
+   - `openspec/changes/<feature>/proposal.md` — business context
+
+2. **Bridge document** (fallback):
+   - `.opencode/plans/<feature>.spec.md`
+
+3. **Existing tests** (if any):
+   - Test patterns used in this project
+   - Framework configuration (jest.config, vitest.config, etc.)
+
+## SPEC COMPLIANCE
+
+Every test MUST map to a scenario in the OpenSpec specs:
+- Happy path scenarios → unit tests + integration tests
+- Edge cases → error handling tests
+- Constraints → performance/security tests
+
+Use this mapping format in test comments:
+```javascript
+// @spec: auth/login/happy-path
+// @spec: auth/login/invalid-credentials
+```
+
 ## ENGRAM CONTEXT
 
 El contexto del proyecto ya está disponible en tu system prompt.

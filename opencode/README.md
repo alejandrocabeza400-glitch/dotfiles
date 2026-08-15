@@ -181,6 +181,49 @@ Cada feature sigue estas 7 fases en orden estricto. **Ninguna fase se salta** si
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
+## Integración con OpenSpec
+
+### ¿Qué es OpenSpec?
+
+[OpenSpec](https://openspec.dev) es un framework SDD que maneja la fase de definición
+(exploración, propuestas, specs) de forma estructurada via CLI.
+
+### Flujo Unificado
+
+```
+@Orch init → openspec init (si necesario)
+    ↓
+@Plan → openspec propose + openspec ff
+    ↓
+[Usuario aprueba artifacts]
+    ↓
+openspec archive → merge deltas a specs principales
+    ↓
+@Tester → @Build → @CodeReview → @QA → @Docs
+```
+
+### Estructura de Directorios
+
+```
+openspec/
+├── specs/                    # Specs principales (source of truth)
+│   └── auth/
+│       └── login.md
+├── changes/                  # Cambios en progreso
+│   └── add-guest-checkout/
+│       ├── proposal.md
+│       ├── specs/
+│       ├── design.md
+│       └── tasks.md
+└── config.yaml               # Configuración del proyecto
+```
+
+### Configuración
+
+Ver `openspec/config.yaml` para configuración del proyecto (tech stack, rules, context).
+
+---
+
 ### Detalle por Fase
 
 | Fase | Agente(s) | Output | Gate | Retry |

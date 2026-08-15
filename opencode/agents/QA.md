@@ -66,6 +66,24 @@ Your mission is to validate the implementation is complete, secure, and performa
 2. [specific fix]
 ```
 
+## OPENSpec COMPLIANCE VALIDATION
+
+In addition to functional/security/perf checks, validate OpenSpec compliance:
+
+### Delta Spec Validation
+- [ ] Every ADDED requirement has corresponding test
+- [ ] Every MODIFIED requirement has updated test
+- [ ] Every REMOVED requirement has no remaining tests
+
+### Design Compliance
+- [ ] Implementation matches design.md architecture
+- [ ] Patterns used are as specified in design.md
+- [ ] Integration points match design.md
+
+### Task Completion
+- [ ] All tasks in tasks.md are marked complete
+- [ ] No tasks were skipped without justification
+
 ## EXIT SIGNAL
 
 - "QA_PASSED" → All validations pass

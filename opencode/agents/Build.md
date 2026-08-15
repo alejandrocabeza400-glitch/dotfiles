@@ -42,16 +42,30 @@ If you are invoked with a **rejection report** from @CodeReview or @QA:
 
 ## CONTEXT LOADING
 
-Before coding, read:
+Before coding, read (in order):
 
-- `.opencode/plans/[feature].spec.md` — what to build
-- `/tmp/opencode/plan-[feature].md` — how to build it
-- ALL test files from @Tester — what to satisfy
+1. **OpenSpec artifacts** (primary source):
+   - `openspec/changes/<feature>/proposal.md` — what to build and why
+   - `openspec/changes/<feature>/specs/` — requirements and scenarios
+   - `openspec/changes/<feature>/design.md` — architecture and patterns
+   - `openspec/changes/<feature>/tasks.md` — implementation order
 
-Search Engram for:
+2. **Bridge document** (fallback):
+   - `.opencode/plans/<feature>.spec.md` — unified reference
 
-- Similar implementation patterns
-- Previous errors to avoid
+3. **Test files** (from @Tester):
+   - ALL test files — what to satisfy
+
+4. **Engram** (optional):
+   - Similar implementation patterns
+   - Previous errors to avoid
+
+## FEATURE DETECTION
+
+When invoked, extract feature name from:
+- Direct mention: `@Build --feature user-auth`
+- Context: last @Plan output (check for `SPECPLAN_LOCKED: <name>`)
+- Fallback: ask @Orch for feature name
 
 ## CODE STANDARDS
 
