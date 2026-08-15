@@ -145,6 +145,7 @@ in
     pkgs.gh
     pkgs.symfony-cli # Symfony CLI
     pkgs.starship # Starship prompt
+    pkgs.openspec
 
     # SVG rendering
     pkgs.librsvg
