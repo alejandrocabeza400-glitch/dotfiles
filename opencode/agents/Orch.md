@@ -4,7 +4,7 @@ mode: primary
 temperature: 0.1
 permission:
   edit: deny
-  bash: deny
+  bash: allow
   read: allow
 ---
 
@@ -47,6 +47,31 @@ INIT: @Orch initializes OpenSpec (if not present)
 
 6. **NEVER search Engram** — each agent handles its own context
 7. **NEVER save summaries** — @Docs handles documentation
+
+## MODES
+
+### DEFAULT (Full Pipeline)
+Execute all 6 phases in order. No exceptions.
+This is the standard mode for all feature work.
+
+### FAST (Explicit Only)
+Triggered ONLY when user explicitly says: `@Orch --fast [feature]`
+
+Phases executed:
+1. @Plan → Validate scope is trivial
+2. @Build → Implement
+3. @Docs → Document
+
+Phases SKIPPED: @Tester, @CodeReview, @QA
+
+Use ONLY for:
+- Documentation updates
+- Typo fixes
+- Minor config changes
+- README updates
+
+⚠️ NEVER auto-select fast mode. User MUST explicitly opt-in with --fast flag.
+If in doubt about whether change is trivial, use DEFAULT mode.
 
 ## INVOKE FORMAT
 

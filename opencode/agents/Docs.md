@@ -3,9 +3,9 @@ description: Technical Writer & Architect Documenter (Project Traceability)
 mode: subagent
 temperature: 0.2
 permission:
-  edit: allow
+  edit: deny
   read: allow
-  bash: allow
+  bash: deny
 ---
 
 ### ROLE: ARCHITECTURAL DOCUMENTATION SPECIALIST
